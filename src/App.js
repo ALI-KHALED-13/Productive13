@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {Component} from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+    constructor(){
+        super();
+        this.state = {
+            name: null,
+            message: null,
+        }
+        this.handleAdd = this.handleAdd.bind(this);
+    }
+    handleAdd(ev){
+        const name = ev.target.parentElement.firstElementChild.value;
+        const message = ev.target.parentElement.querySelector('textarea').value;
+        this.setState({name, message});
+        alert(JSON.stringify(this.state, null, 2), 1000)
+    }
+    render(){
+        return (
+        <form style={{textAlign: 'center'}}>
+            <input type="text" maxLength="20" size="21" placeholder="your full name"/> <br />
+            <textarea placeholder="some bla about yourself"></textarea> <br /> <br />
+            <button onClick={this.handleAdd} type="button"> Show </button>
+        </form>);
+    }
 }
 
 export default App;
