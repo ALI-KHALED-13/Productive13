@@ -12,8 +12,13 @@ class App extends Component {
             dietRestrictions: [],
         }
         this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
     
+    handleSubmit(ev){
+        ev.preventDefault();
+        alert(JSON.stringify(this.state, null, 2));
+    }
     handleChange(ev){
         const {name, value, type} = ev.target;
         if (type === 'checkbox'){
@@ -30,7 +35,7 @@ class App extends Component {
 
         return (
             <main>
-                <form>
+                <form onSubmit={this.handleSubmit}>
                     <input 
                     placeholder="First Name" 
                     name='firstName' 
