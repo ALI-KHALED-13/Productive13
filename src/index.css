@@ -1,1 +1,79 @@
+:root {
+    scroll-behavior: smooth;
+    --regularSize: max(2vw, 2vh);
+    --bigSize : max(3vw, 3vh);
+}
 
+* {
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: var(--regularSize);
+    font-weight: 500;
+    text-align: center;
+}
+
+::selection {
+    background-color: rgb(127, 229, 255);
+    color: white;
+}
+
+body {
+    background-color: rgb(228, 235, 245);
+    overflow-x: hidden;
+}
+
+header {
+    background-color: rgb(66, 15, 100);
+    color: rgb(209, 223, 238);
+    display: flex;
+    padding: 5%;
+    align-items: center;
+}
+header  h1 {
+    font-size: var(--bigSize);
+}
+header  img {
+    width: 50%;
+    border-radius: 10px;
+    margin: 0px 10px;
+}
+main {min-height: 80vh;}
+footer {min-height: 8vh; background-color: black;}
+footer > a, footer > a:visited {color: white; line-height: 8vh;} 
+
+aside {
+    cursor: pointer;
+    user-select: none;
+    position: fixed;
+    bottom: 5vh;
+    right: 2px;
+    width: min(18vw, 160px);
+    height: min(18vw, 160px);
+    line-height: min(18vw, 160px);
+    font-size: var(--bigSize);
+    background-color: rgb(66, 15, 100);
+    color: white;
+    border-radius: 50%;
+}
+.options {
+    position: absolute;
+    bottom: 50%;
+    right: -33vw;
+    background-color: rgba(27, 26, 26, 0.74);
+    width: 30vw;
+    transition: all 0.3s;
+}
+.show {
+    right: 2vw;
+    bottom: 100%;
+    z-index: 2;
+}
+
+.options div {
+    max-height: 10vh;
+    line-height: 10vh;
+}
+.options div:hover {
+    cursor: pointer;
+    background-color: rgba(27, 26, 26, 0.89);
+}

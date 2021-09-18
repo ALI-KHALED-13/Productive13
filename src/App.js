@@ -1,16 +1,18 @@
 import React from 'react';
-
+import MyHeader from './components/myHeader'
+import WorkArea from './components/WorkArea'
+import AliFooter from './components/AliFooter'
 
 function App(){
+    //useeffect on mount to fetch from localSorage
     return (
-        <h2>hi again</h2>
+        <React.Fragment>
+            <MyHeader />
+            <WorkArea />
+            <AliFooter />
+        </React.Fragment>
     );
 }
 export default App;
 
 
-/*
-note
-list <ul>
-reminder < date and attached audio>
-*/
