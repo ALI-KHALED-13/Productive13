@@ -3,7 +3,7 @@ import ItemForm from './ItemForm';
 
 const WorkArea =()=>{
     //useeffect on mount to fetch from localSorage
-    const [formShown, setFormShown] = useState({note: false, list: false, reminder: false});
+    const [formsShown, setFormShown] = useState({note: false, list: false, reminder: false});
     const notes = [];
     const lists = [];
     const reminders = [];
@@ -11,10 +11,9 @@ const WorkArea =()=>{
     const handleOptions =(ev)=>{
         if (ev.target.nodeName === "DIV") {
             const type = ev.target.textContent.toLowerCase();
-            setFormShown({...formShown, [type]: true}) ;
+            setFormShown({...formsShown, [type]: true}) ;
         } 
-        document.querySelector('.options').classList.toggle('show');
-            
+        document.querySelector('.options').classList.toggle('show');     
     }
 
     return (
@@ -27,6 +26,7 @@ const WorkArea =()=>{
                 <div>Reminder</div>
             </div>
         </aside>
+
         <section>
             <h2> Notes </h2>
             <div className="notes">
@@ -50,7 +50,7 @@ const WorkArea =()=>{
 
         {/*the form area*/ }
            <ItemForm 
-            forms={formShown} 
+            forms={formsShown} 
             reset={setFormShown}
             notes={notes}
             lists={lists}
