@@ -1,15 +1,15 @@
 const ListCard =(props)=>{
     const listType = props.listType.slice( props.listType.search('-') + 1 );
     return (
-        <div className="listCard" contentEditable>
-            <h2 style={{fontWeight: 'bold'}}>{props.title}</h2>
+        <div className="listCard" >
+            <h2 style={{fontWeight: 'bold'}} contentEditable>{props.title}</h2>
             <hr/>
             {
                 props.listType === 'unordred'? 
-                <ul>
+                <ul contentEditable>
                     {props.content.map(item=> <li><label><input type='checkbox'/>{item}</label></li>)}
                 </ul>:
-                <ol style={{ listStyleType: listType}}>
+                <ol style={{ listStyleType: listType}} contentEditable>
                     {props.content.map(item=> <li>{item}</li>)}
                 </ol>
             }

@@ -1,9 +1,9 @@
 const NoteCard =(props)=>{
     return (
-        <div className="note" contentEditable>
-            <h2 style={{fontWeight: 'bold'}}>{props.title}</h2>
+        <div className="note" >
+            <h2 style={{fontWeight: 'bold'}} contentEditable >{props.title}</h2>
             <hr/>
-            <p>{props.content}</p>
+            <p contentEditable>{props.content}</p>
         </div>
     );
 }
