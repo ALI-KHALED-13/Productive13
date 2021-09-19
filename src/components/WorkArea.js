@@ -1,71 +1,53 @@
-import { useState } from "react";
-import ItemForm from './ItemForm';
-
-const WorkArea =()=>{
-    //useeffect on mount to fetch from localSorage
-    const [formsShown, setFormShown] = useState({note: false, list: false, reminder: false});
-    const notes = [];
-    const lists = [];
-    const reminders = [];
-
-    const handleOptions =(ev)=>{
-        if (ev.target.nodeName === "DIV") {
-            const type = ev.target.textContent.toLowerCase();
-            setFormShown({...formsShown, [type]: true}) ;
-        } 
-        document.querySelector('.options').classList.toggle('show');     
-    }
-
+import { useState } from 'react';
+import NoteCard from './NoteCard';
+import ListCard from './ListCard';
+import RemindCard from './RemindCard';
+import AddingComp from './AddingComp';
+const WorkArea = ({data, type})=>{
+    const [notes, updateNotes] = useState([]);
+    const [lists, updateLists] = useState([]);
+    const [reminders, updateReminders] = useState([]);
     return (
-    <main>
-        <aside onClick={handleOptions} >
-            Add
-            <div className='options'>
-                <div>Note</div>
-                <div>List</div>
-                <div>Reminder</div>
-            </div>
-        </aside>
+        <main>
+            <section>
+                <h2>NOTES</h2>
+                <div className="container">
+                    {
+                    notes.map((note, ind)=> {
+                        return <NoteCard key={ind} title={note.title} content={note.content}/>
+                        })
+                    }
+                </div>
+            </section>
+            <hr />
+            <section>
+                <h2>LISTS</h2>
+                <div className="container">
+                    {
+                    lists.map((list, ind)=> {
+                    return <ListCard key={ind} title={list.title} content={list.content} listType={list.listType}/>
+                    })
+                    }
+                </div>
+            </section>
+            <hr />
+            <section>
+                <h2>Reminders</h2>
+                <div className="container">
+                    {
+                    reminders.map((reminder, ind)=> {
+                        return <RemindCard key={ind} tite={reminder.title} content={reminder.content}/>
+                    })
+                    }
+                </div>
+            </section>
 
-        <section>
-            <h2> Notes </h2>
-            <div className="notes">
-                {notes.map((note)=> console)}
-            </div>
-        </section>
-        <hr />
-        <section>
-            <h2> Lists </h2>
-            <div className="Lists">
-                {lists.map((list)=> console)}
-            </div>
-        </section>
-        <hr />
-        <section>
-            <h2> Reminders </h2>
-            <div className="Reminders">
-                {reminders.map((reminder)=> console)}
-            </div>
-        </section>
-
-        {/*the form area*/ }
-           <ItemForm 
-            forms={formsShown} 
-            reset={setFormShown}
-            notes={notes}
-            lists={lists}
-            reminders={reminders}
+            <AddingComp 
+                setStock={{updateLists, updateNotes, updateReminders}}
+                stock={{notes, lists, reminders}}
             />
-    </main>
+        </main>
     );
-}
+};
 
 export default WorkArea;
-
-/*
-note
-list <ul>
-reminder < date and attached audio>
-
-each has the category with a color theme
-*/
