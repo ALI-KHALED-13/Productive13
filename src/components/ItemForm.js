@@ -67,8 +67,8 @@ const ItemForm =({forms, reset, setStock, stock})=>{
                     <select value={listType} onChange={handleChange} name="listType" required>
                         <option value="">choose your List type</option>
                         <option value="unordred">unordred</option>
-                        <option value="ordered-numbers">ordred - regular numbers</option>
-                        <option value="ordered-roman">ordered - roman numbers</option>
+                        <option value="ordered-decimal">ordred - regular numbers</option>
+                        <option value="ordered-upper-roman">ordered - roman numbers</option>
                     </select>
                 )
                 }
