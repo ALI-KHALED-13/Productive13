@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import NoteCard from './NoteCard';
-import ListCard from './ListCard';
-import RemindCard from './RemindCard';
+import NoteCard from './subcomponents/NoteCard';
+import ListCard from './subcomponents/ListCard';
+import RemindCard from './subcomponents/RemindCard';
 import AddingComp from './AddingComp';
 const WorkArea = ({data, type})=>{
     const [notes, updateNotes] = useState([]);

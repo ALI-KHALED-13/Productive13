@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from 'react';
-import ItemForm  from "./ItemForm";
+import ItemForm  from "./subcomponents/ItemForm";
 const AddingComp =({stock, setStock})=>{
 
     const [formsShown, setFormShown] = useState({note: false, list: false, reminder: false});
