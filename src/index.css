@@ -71,6 +71,7 @@ main > section  > .container{ /*representing every section container (lists, not
     padding: 1%; 
     margin: 2%; 
     min-height: 20vh;
+    border-radius: 10px;
 }
 .container > div > *:focus {outline: none;}
 
