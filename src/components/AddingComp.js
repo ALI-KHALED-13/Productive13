@@ -24,22 +24,17 @@ const AddingComp =({stock, setStock})=>{
                 </div>
             </aside>
 
-            { Object.values(formsShown).includes(true) &&
+            { 
+            Object.values(formsShown).includes(true) &&
             <ItemForm 
                 forms={formsShown} 
                 reset={setFormShown}
                 stock={stock}
                 setStock={setStock}
-            />}
+            />
+            }
         </React.Fragment>
     )
 }
 
 export default AddingComp;
-/*
-note
-list <ul>
-reminder < date and attached audio>
-
-each has the category with a color theme
-*/

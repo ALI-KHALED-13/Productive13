@@ -4,8 +4,11 @@ const ItemForm =({forms, reset, setStock, stock})=>{
     const [title, setTitle] = useState('');
     const [listType, setListType] = useState('');
     const [body, setBody] = useState(``);
+    const [date, setDate] = useState('');
+
     let selected = null;
-    let d = new Date().toISOString();
+    let d = new Date(Date.now() -  (new Date()).getTimezoneOffset() * 60 * 1000).toISOString(); // will be used very down in the date input/ toIso reset to the TZ to 0
+
 
     for (let key in forms) if (forms[key]) selected = key;
 
@@ -18,6 +21,8 @@ const ItemForm =({forms, reset, setStock, stock})=>{
                 break;
             case 'body': setBody(ev.target.value);
                 break;
+            case 'date': setDate(ev.target.value);
+                break;
             default: console.log('non applicable')
 
         }
@@ -28,7 +33,8 @@ const ItemForm =({forms, reset, setStock, stock})=>{
         const categ = selected;
 
         const content = categ !== 'list'? body: body.trim().split('\n').map(line=> {return {item:line, isChecked:false}});
-        const obj = {title, listType, content, id: categ + Math.floor(Date.now() / 5000)}
+
+        const obj = {title, listType, content, date ,id: categ + Math.floor(Date.now() / 5000)}
         const arr = [...stock[categ+'s']];
         arr.push(obj)
 
@@ -37,10 +43,10 @@ const ItemForm =({forms, reset, setStock, stock})=>{
                 break;
             case 'list': setStock.updateLists(arr);
                 break;
-            case 'reminder': setStock.updateReminders(arr);
+            case 'reminder': 
+                setStock.updateReminders(arr.sort((obj1, obj2)=> new Date(obj1.date) - new Date(obj2.date))) // to display the sooner to the left);
                 break;
-            default: console.log('non added')
-
+            default: console.log('not added')
         }
 
         setTitle(''); setListType(''); setBody('');
@@ -50,14 +56,16 @@ const ItemForm =({forms, reset, setStock, stock})=>{
 
     return (
         <div className="item-form">
+
             <span 
-                onClick={()=> { setTitle(''); setListType(''); setBody('');reset({...forms, [selected]:false});}}
+                onClick={()=> { setTitle(''); setListType(''); setBody(''); reset({...forms, [selected]:false});}}
                 className="exit"
             >
                     X
             </span>
 
             <form onSubmit={handleSave}>
+
                 <input 
                 name="title"
                 maxLength="30" 
@@ -78,25 +86,31 @@ const ItemForm =({forms, reset, setStock, stock})=>{
                 )
                 }
                 {
-                selected === 'list'? 
-                        <textarea
-                        name="body"
-                        onChange={handleChange}
-                        value={body}
-                        placeholder="separate your list items into separate lines"
-                        required
-                        />:
-                        <textarea
-                        name="body" 
-                        placeholder='your note content' 
-                        value={body} 
-                        onChange={handleChange}
-                        required
-                        />
+                selected === 'reminder'? null : <textarea
+                                                    name="body"
+                                                    onChange={handleChange}
+                                                    value={body}
+                                                    placeholder={selected === 'list'? "separate your list items into separate lines":
+                                                                                    "your note content"}
+                                                    required
+                                                />
+                        
                 }
-                <input type="datetime-local" min={d.slice(0, d.lastIndexOf(':'))} disabled={selected !== 'reminder'}/> 
+                
+                {selected === 'reminder' && (
+                    <input 
+                        type="datetime-local" 
+                        min={d.slice(0, d.lastIndexOf(':'))} //as the "value" prop of this type of input is in the form of yyyy-mm-ddThh:mm
+                        value={date}
+                        onChange={handleChange}
+                        name="date"
+                    />
+                ) }
+
                 <input type="submit" value="Save" /> 
+
             </form>
+
         </div>
     );
 

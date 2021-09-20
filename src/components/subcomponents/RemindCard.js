@@ -6,7 +6,8 @@ const RemindCard =({reminder, reminders, updateReminders})=>{
         <div className="reminder" >
             <h2 style={{fontWeight: 'bold'}} contentEditable suppressContentEditableWarning >{reminder.title}</h2>
             <hr/>
-            <p contentEditable suppressContentEditableWarning>{reminder.content}</p>
+            <p contentEditable suppressContentEditableWarning>to be done at {reminder.date.replace("T", " > ")}</p>
+
             <button onClick={handleDelete}>Delete</button>
         </div>
     );

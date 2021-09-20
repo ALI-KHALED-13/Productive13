@@ -7,6 +7,8 @@ const WorkArea = ({data, type})=>{
     const [notes, updateNotes] = useState([]);
     const [lists, updateLists] = useState([]);
     const [reminders, updateReminders] = useState([]);
+    
+
     return (
         <main>
             <section>
