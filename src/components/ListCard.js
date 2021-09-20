@@ -1,20 +1,26 @@
-const ListCard =(props)=>{
-    const listType = props.listType.slice( props.listType.search('-') + 1 );
+const ListCard =({ list, lists, updateLists})=>{
+    const listType = list.listType.slice( list.listType.search('-') + 1 );
+
+    const handleDelete =(ev)=> updateLists(lists.filter(obj=> obj !== list));
+
     return (
         <div className="listCard" >
-            <h2 style={{fontWeight: 'bold'}} contentEditable>{props.title}</h2>
+            <h2 style={{fontWeight: 'bold'}} contentEditable suppressContentEditableWarning >{list.title}</h2>
             <hr/>
             {
-                props.listType === 'unordred'? 
-                <ul contentEditable>
-                    {props.content.map(item=> <li><label><input type='checkbox'/>{item}</label></li>)}
+                list.listType === 'unordred'? 
+                <ul contentEditable suppressContentEditableWarning>
+                    {
+                    list.content.map((obj, ind)=> <li  key={list.id + ind} > <label><input type='checkbox'/>{obj.item}</label> </li>)
+                    }
                 </ul>:
-                <ol style={{ listStyleType: listType}} contentEditable>
-                    {props.content.map(item=> <li>{item}</li>)}
+                <ol style={{ listStyleType: listType}} contentEditable suppressContentEditableWarning>
+                    {list.content.map((obj, ind)=> <li key={list.id + ind}> {obj.item} </li>)}
                 </ol>
             }
+            <button onClick={handleDelete}>Delete</button>
         </div>
     );
 }
 export default ListCard
-//to do : onchange for the checkboxes || delete on every box || css enhancments || reminder ??
+//to do : onchange for the checkboxes || css enhancments || reminder ??

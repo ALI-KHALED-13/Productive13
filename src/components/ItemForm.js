@@ -3,8 +3,9 @@ import { useState } from "react/cjs/react.development";
 const ItemForm =({forms, reset, setStock, stock})=>{
     const [title, setTitle] = useState('');
     const [listType, setListType] = useState('');
-    const [body, setBody] = useState("");
+    const [body, setBody] = useState(``);
     let selected = null;
+    let d = new Date().toISOString();
 
     for (let key in forms) if (forms[key]) selected = key;
 
@@ -25,10 +26,12 @@ const ItemForm =({forms, reset, setStock, stock})=>{
     const handleSave =(ev)=>{
         ev.preventDefault();
         const categ = selected;
-        const content = categ === 'list'? body.trim().split('\n'): body;
-        const obj = {title, listType, content}
+
+        const content = categ !== 'list'? body: body.trim().split('\n').map(line=> {return {item:line, isChecked:false}});
+        const obj = {title, listType, content, id: categ + Math.floor(Date.now() / 5000)}
         const arr = [...stock[categ+'s']];
         arr.push(obj)
+
         switch(categ){
             case 'note': setStock.updateNotes(arr);
                 break;
@@ -39,6 +42,7 @@ const ItemForm =({forms, reset, setStock, stock})=>{
             default: console.log('non added')
 
         }
+
         setTitle(''); setListType(''); setBody('');
 
         reset({...forms, [selected]:false});
@@ -47,12 +51,12 @@ const ItemForm =({forms, reset, setStock, stock})=>{
     return (
         <div className="item-form">
             <span 
-                onClick={()=> {
-                    setTitle(''); setListType(''); setBody('');
-                    reset({...forms, [selected]:false});
-                }}
+                onClick={()=> { setTitle(''); setListType(''); setBody('');reset({...forms, [selected]:false});}}
                 className="exit"
-            >X</span>
+            >
+                    X
+            </span>
+
             <form onSubmit={handleSave}>
                 <input 
                 name="title"
@@ -61,6 +65,7 @@ const ItemForm =({forms, reset, setStock, stock})=>{
                 value={title} 
                 onChange={handleChange}
                 required
+                autoFocus
                 />
                 {
                 selected === 'list' && (
@@ -73,23 +78,23 @@ const ItemForm =({forms, reset, setStock, stock})=>{
                 )
                 }
                 {
-                selected !== 'list'? 
-                        <textarea
-                        name="body" 
-                        placeholder='your note content' 
-                        value={body} 
-                        onChange={handleChange}
-                        required
-                        />:
+                selected === 'list'? 
                         <textarea
                         name="body"
                         onChange={handleChange}
                         value={body}
                         placeholder="separate your list items into separate lines"
                         required
+                        />:
+                        <textarea
+                        name="body" 
+                        placeholder='your note content' 
+                        value={body} 
+                        onChange={handleChange}
+                        required
                         />
                 }
-
+                <input type="datetime-local" min={d.slice(0, d.lastIndexOf(':'))} disabled={selected !== 'reminder'}/> 
                 <input type="submit" value="Save" /> 
             </form>
         </div>

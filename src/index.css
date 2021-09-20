@@ -66,14 +66,18 @@ main > section  > .container{
     flex-flow: row nowrap;
 }
 .container > div {
+    position: relative;
     min-width: min(50vw, 200px);
-    padding: 3%; 
+    padding: 1%; 
     margin: 2%; 
     min-height: 20vh;
 }
-.container > div > * {margin: 4%;}
+.container > div > h2 {margin: 0px 0px 0px 4%;}
+.container > div > p {margin: 3% 0px; padding: 2%;}
+.container > div > button {position: absolute; bottom: 1px;}
 
 .note {background-color: rgb(255, 200, 129);color: black;}
+.reminder {background-color: rgb(215, 236, 181);color: black;}
 
 .listCard {background-color: rgb(129, 137, 255);color: white;}
 

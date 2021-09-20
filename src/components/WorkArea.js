@@ -13,9 +13,7 @@ const WorkArea = ({data, type})=>{
                 <h2>NOTES</h2>
                 <div className="container">
                     {
-                    notes.map((note, ind)=> {
-                        return <NoteCard key={ind} title={note.title} content={note.content}/>
-                        })
+                    notes.map(note=> <NoteCard key={note.id} note={note} notes={notes} updateNotes={updateNotes}/>)
                     }
                 </div>
             </section>
@@ -24,9 +22,7 @@ const WorkArea = ({data, type})=>{
                 <h2>LISTS</h2>
                 <div className="container">
                     {
-                    lists.map((list, ind)=> {
-                    return <ListCard key={ind} title={list.title} content={list.content} listType={list.listType}/>
-                    })
+                    lists.map(list=> <ListCard key={list.id} list={list} lists={lists} updateLists={updateLists}/>)
                     }
                 </div>
             </section>
@@ -35,9 +31,7 @@ const WorkArea = ({data, type})=>{
                 <h2>Reminders</h2>
                 <div className="container">
                     {
-                    reminders.map((reminder, ind)=> {
-                        return <RemindCard key={ind} tite={reminder.title} content={reminder.content}/>
-                    })
+                    reminders.map(reminder=>  <RemindCard key={reminder.id} reminder={reminder} reminders={reminders} updateReminders={updateReminders}/>)
                     }
                 </div>
             </section>
