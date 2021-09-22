@@ -1,8 +1,13 @@
 import React from 'react';
 
-const RemindCard =({reminder, reminders, updateReminders})=>{
+const RemindCard =({reminder, reminders, updateReminders, playAlert})=>{
     
     const handleDelete =()=> updateReminders(reminders.filter(obj=> obj !== reminder)); //universal function imported? performance? localStorage?
+
+    setTimeout(()=>{
+        playAlert().then(()=> alert("it's time for " + reminder.title));
+    }, (new Date(reminder.date).getTime() - Date.now()))
+
 
     return (
         <div className="reminder" >

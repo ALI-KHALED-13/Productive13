@@ -1,3 +1,4 @@
+import alertSFX from '../media/reminderSFX.mp3';
 import { useState } from 'react';
 import NoteCard from './subcomponents/NoteCard';
 import ListCard from './subcomponents/ListCard';
@@ -12,7 +13,12 @@ const WorkArea = ({data})=>{
         const dataStr = JSON.stringify({notes, lists, reminders});
         localStorage.setItem('data', dataStr);
     })
-
+    
+    const playAlert =()=>{
+        const alertSFX = document.getElementById('alertSFX');
+        alertSFX.volume = 0.2;
+        return alertSFX.play();
+    }
     return (
         <main >
             <section>
@@ -37,7 +43,8 @@ const WorkArea = ({data})=>{
                 <h2>Reminders <sup>automatically arranged*</sup></h2>
                 <div className="container">
                     {
-                    reminders.map(reminder=>  <RemindCard key={reminder.id} reminder={reminder} reminders={reminders} updateReminders={updateReminders}/>) 
+                    reminders.map(reminder=>  <RemindCard key={reminder.id} reminder={reminder} 
+                                   reminders={reminders} updateReminders={updateReminders} playAlert={playAlert}/>) 
                     }
                 </div>
             </section>
@@ -46,6 +53,10 @@ const WorkArea = ({data})=>{
                 setStock={{updateLists, updateNotes, updateReminders}}
                 stock={{notes, lists, reminders}}
             />
+
+            <audio id="alertSFX">
+                <source src={alertSFX} type="audio/mpeg" />
+            </audio>
         </main>
     );
 };
