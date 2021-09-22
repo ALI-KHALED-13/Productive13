@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState } from 'react';
 import NoteCard from './subcomponents/NoteCard';
 import ListCard from './subcomponents/ListCard';
 import RemindCard from './subcomponents/RemindCard';
