@@ -9,7 +9,6 @@ const ItemForm =({forms, reset, setStock, stock})=>{
     let selected = null;
     let d = new Date(Date.now() -  (new Date()).getTimezoneOffset() * 60 * 1000).toISOString(); // will be used very down in the date input/ toIso reset to the TZ to 0
 
-
     for (let key in forms) if (forms[key]) selected = key;
 
 
