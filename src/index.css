@@ -81,8 +81,9 @@ main > section  > .container{ /*representing every section container (lists, not
 
 .note {background-color: rgb(255, 200, 129);color: black;}
 .reminder {background-color: rgb(215, 236, 181);color: black;}
-
 .listCard {background-color: rgb(129, 137, 255);color: white;}
+
+.title {font-weight: 'bold'}
 
 .listCard ul {
     list-style-type: none; 

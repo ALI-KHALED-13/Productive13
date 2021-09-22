@@ -104,8 +104,8 @@ const ItemForm =({forms, reset, setStock, stock})=>{
                         name="date"
                         required
                     />
-                ) }
-
+                )}
+                
                 <input type="submit" value="Save" /> 
 
             </form>
