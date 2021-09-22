@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo} from 'react';
 import NoteCard from './subcomponents/NoteCard';
 import ListCard from './subcomponents/ListCard';
 import RemindCard from './subcomponents/RemindCard';
@@ -14,8 +14,10 @@ const WorkArea = ({data, type})=>{
             <section>
                 <h2>NOTES</h2>
                 <div className="container">
-                    { 
-                       notes.map(note=> <NoteCard key={note.id} note={note} notes={notes} updateNotes={updateNotes}/>)
+                    {
+                    useMemo(()=>{ //so rerenders only when updates occur to this section, performance up
+                        return notes.map(note=> <NoteCard key={note.id} note={note} notes={notes} updateNotes={updateNotes}/>)
+                    }, [notes])
                     }
                 </div>
             </section>
@@ -24,7 +26,9 @@ const WorkArea = ({data, type})=>{
                 <h2>LISTS</h2>
                 <div className="container">
                     {
-                    lists.map(list=> <ListCard key={list.id} list={list} lists={lists} updateLists={updateLists}/>)
+                    useMemo(()=>{
+                        return lists.map(list=> <ListCard key={list.id} list={list} lists={lists} updateLists={updateLists}/>)
+                    }, [lists])
                     }
                 </div>
             </section>
@@ -33,7 +37,9 @@ const WorkArea = ({data, type})=>{
                 <h2>Reminders</h2>
                 <div className="container">
                     {
-                    reminders.map(reminder=>  <RemindCard key={reminder.id} reminder={reminder} reminders={reminders} updateReminders={updateReminders}/>)
+                    useMemo(()=>{
+                        return reminders.map(reminder=>  <RemindCard key={reminder.id} reminder={reminder} reminders={reminders} updateReminders={updateReminders}/>) 
+                    }, [reminders])
                     }
                 </div>
             </section>
