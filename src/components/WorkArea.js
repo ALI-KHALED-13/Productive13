@@ -15,9 +15,7 @@ const WorkArea = ({data, type})=>{
                 <h2>NOTES</h2>
                 <div className="container">
                     {
-                    useMemo(()=>{ //so rerenders only when updates occur to this section, performance up
-                        return notes.map(note=> <NoteCard key={note.id} note={note} notes={notes} updateNotes={updateNotes}/>)
-                    }, [notes])
+                    notes.map(note=> <NoteCard key={note.id} note={note} notes={notes} updateNotes={updateNotes}/>)
                     }
                 </div>
             </section>
@@ -26,9 +24,7 @@ const WorkArea = ({data, type})=>{
                 <h2>LISTS</h2>
                 <div className="container">
                     {
-                    useMemo(()=>{
-                        return lists.map(list=> <ListCard key={list.id} list={list} lists={lists} updateLists={updateLists}/>)
-                    }, [lists])
+                    lists.map(list=> <ListCard key={list.id} list={list} lists={lists} updateLists={updateLists}/>)
                     }
                 </div>
             </section>
@@ -37,9 +33,7 @@ const WorkArea = ({data, type})=>{
                 <h2>Reminders</h2>
                 <div className="container">
                     {
-                    useMemo(()=>{
-                        return reminders.map(reminder=>  <RemindCard key={reminder.id} reminder={reminder} reminders={reminders} updateReminders={updateReminders}/>) 
-                    }, [reminders])
+                    reminders.map(reminder=>  <RemindCard key={reminder.id} reminder={reminder} reminders={reminders} updateReminders={updateReminders}/>) 
                     }
                 </div>
             </section>
