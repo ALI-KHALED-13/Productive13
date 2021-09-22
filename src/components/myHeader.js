@@ -1,12 +1,15 @@
 import { useState } from 'react';
 import photo from '../media/ph.png'
-import ost from '../media/main_ost.mp3'
+import introMusic from '../media/intro.mp3'
+import backMusic from '../media/the_loop.mp3'
 
 const MyHeader =()=>{
     const [name, setName] = useState('');
     const handleClick =()=>{
+        document.getElementById('introMusic').play();
         const backMusic = document.getElementById('backMusic');
-        backMusic.play();
+        backMusic.volume = 0.9;
+        setTimeout(()=> backMusic.play(), 7500);
         setName('retract');
     }
     return (
@@ -17,8 +20,11 @@ const MyHeader =()=>{
                 <p>your work managment area</p>
                 {name? null: <span onClick={handleClick} > Let's Go! </span>}
             </div>
-            <audio id="backMusic">
-                <source src={ost} type="audio/mpeg" />
+            <audio id="introMusic">
+                <source src={introMusic} type="audio/mpeg" />
+            </audio>
+            <audio id="backMusic" loop>
+                <source src={backMusic} type="audio/mpeg" />
             </audio>
         </header>
     );
