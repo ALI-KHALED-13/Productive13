@@ -1,6 +1,6 @@
 const RemindCard =({reminder, reminders, updateReminders})=>{
     
-    const handleDelete =(ev)=> updateReminders(reminders.filter(obj=> obj !== reminder)); //universal function imported? performance? localStorage?
+    const handleDelete =()=> updateReminders(reminders.filter(obj=> obj !== reminder)); //universal function imported? performance? localStorage?
 
     return (
         <div className="reminder" >
@@ -8,6 +8,7 @@ const RemindCard =({reminder, reminders, updateReminders})=>{
             <hr/>
             <p contentEditable suppressContentEditableWarning>to be done at {reminder.date.replace("T", " > ")}</p>
 
+            <br />
             <button onClick={handleDelete}>Delete</button>
         </div>
     );

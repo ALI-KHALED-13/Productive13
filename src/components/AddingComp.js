@@ -4,19 +4,21 @@ import ItemForm  from "./subcomponents/ItemForm";
 const AddingComp =({stock, setStock})=>{
 
     const [formsShown, setFormShown] = useState({note: false, list: false, reminder: false});
+    const [text, seText] = useState('Add')
 
     const handleOptions =(ev)=>{
         if (ev.target.nodeName === "DIV") {
             const type = ev.target.textContent.toLowerCase();
             setFormShown({...formsShown, [type]: true}) ;
-        } 
+        }
+        seText(text === "Add"? 'Undo':"Add");
         document.querySelector('.options').classList.toggle('show');     
     }
 
     return (
         <React.Fragment>
             <aside onClick={handleOptions} >
-                Add
+                {text}
                 <div className='options'>
                     <div>Note</div>
                     <div>List</div>

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import NoteCard from './subcomponents/NoteCard';
 import ListCard from './subcomponents/ListCard';
 import RemindCard from './subcomponents/RemindCard';
@@ -14,8 +14,8 @@ const WorkArea = ({data, type})=>{
             <section>
                 <h2>NOTES</h2>
                 <div className="container">
-                    {
-                    notes.map(note=> <NoteCard key={note.id} note={note} notes={notes} updateNotes={updateNotes}/>)
+                    { 
+                       notes.map(note=> <NoteCard key={note.id} note={note} notes={notes} updateNotes={updateNotes}/>)
                     }
                 </div>
             </section>

@@ -90,8 +90,7 @@ const ItemForm =({forms, reset, setStock, stock})=>{
                                                     name="body"
                                                     onChange={handleChange}
                                                     value={body}
-                                                    placeholder={selected === 'list'? "separate your list items into separate lines":
-                                                                                    "your note content"}
+                                                    placeholder={selected === 'list'? "separate your list items into separate lines":"your note content"}
                                                     required
                                                 />
                         
@@ -104,6 +103,7 @@ const ItemForm =({forms, reset, setStock, stock})=>{
                         value={date}
                         onChange={handleChange}
                         name="date"
+                        required
                     />
                 ) }
 

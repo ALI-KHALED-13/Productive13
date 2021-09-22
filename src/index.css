@@ -142,12 +142,11 @@ main > section  > .container{ /*representing every section container (lists, not
     justify-content: center;
     align-items: center;
 }
-.item-form > form > * {display: block; margin: 3%;}
+.item-form > form > * {display: block; margin: 3%; padding: 2%;}
 .item-form > form > *:focus {outline: none;}
-.item-form > form > textarea {min-height: 40vh;}
+.item-form > form > textarea {min-height: 40vh; width: 85%;}
 .item-form [type="submit"] {
     background-color: rgb(66, 15, 100); 
     color: white;
-    padding: 2%;
     border-radius: 10px;
 }
