@@ -14,8 +14,8 @@ const WorkArea = ({data, type})=>{
             <section>
                 <h2>NOTES</h2>
                 <div className="container">
-                    { 
-                       notes.map(note=> <NoteCard key={note.id} note={note} notes={notes} updateNotes={updateNotes}/>)
+                    {
+                    notes.map(note=> <NoteCard key={note.id} note={note} notes={notes} updateNotes={updateNotes}/>)
                     }
                 </div>
             </section>
@@ -33,7 +33,7 @@ const WorkArea = ({data, type})=>{
                 <h2>Reminders</h2>
                 <div className="container">
                     {
-                    reminders.map(reminder=>  <RemindCard key={reminder.id} reminder={reminder} reminders={reminders} updateReminders={updateReminders}/>)
+                    reminders.map(reminder=>  <RemindCard key={reminder.id} reminder={reminder} reminders={reminders} updateReminders={updateReminders}/>) 
                     }
                 </div>
             </section>

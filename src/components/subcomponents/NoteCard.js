@@ -1,7 +1,9 @@
+import React from 'react';
+
 const NoteCard =({ note, notes, updateNotes})=>{
 
     const handleDelete =()=> updateNotes(notes.filter(obj=> obj !== note)); //universal function imported? performance? localStorage?
-
+    console.log('note');
     return (
         <div className="note" >
             <h2 style={{fontWeight: 'bold'}} contentEditable suppressContentEditableWarning >{note.title}</h2>
@@ -12,4 +14,4 @@ const NoteCard =({ note, notes, updateNotes})=>{
         </div>
     );
 }
-export default NoteCard
+export default React.memo(NoteCard);
