@@ -12,7 +12,7 @@ const WorkArea = ({data, type})=>{
     return (
         <main>
             <section>
-                <h2>NOTES</h2>
+                <h2>NOTES <span>editable*</span></h2> 
                 <div className="container">
                     {
                     notes.map(note=> <NoteCard key={note.id} note={note} notes={notes} updateNotes={updateNotes}/>)
