@@ -3,7 +3,10 @@ import React from 'react';
 const ListCard =({ list, lists, updateLists})=>{
     const listType = list.listType.slice( list.listType.search('-') + 1 );
 
-    const handleDelete =()=> updateLists(lists.filter(card=> card !== list));
+    const handleDelete =(ev)=> {
+        ev.target.parentElement.style.animation = 'fadeOutLeft 1s';
+        setTimeout(updateLists(lists.filter(card=> card !== list)), 600);
+    }
     
     const handleCheck =(ev)=> {
         updateLists( lists.map(card=> { 

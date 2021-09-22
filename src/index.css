@@ -34,7 +34,7 @@ header {
     position: fixed;
     top: 0;
     min-height: 100vh;
-    transition: min-height 5s ease-in-out;
+    transition: min-height 4.5s ease-in-out;
     z-index: 5;
 }
 .retract {position: relative; min-height: 15vh; z-index: 1;}
@@ -99,7 +99,9 @@ main > section  > .container{ /*representing every section container (lists, not
     padding: 1%; 
     margin: 2%; 
     border-radius: 10px;
+    animation: fadeInRight 1s;
 }
+
 .container > div > *:focus {outline: none;}
 
 .container > div > h2 {margin-bottom: 4%;}
@@ -177,4 +179,25 @@ main > section  > .container{ /*representing every section container (lists, not
     background-color: rgb(66, 15, 100); 
     color: white;
     border-radius: 10px;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes fadeOutLeft {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-15px);
+    }
 }
