@@ -8,7 +8,7 @@ const MyHeader =()=>{
     const handleClick =()=>{
         document.getElementById('introMusic').play();
         const backMusic = document.getElementById('backMusic');
-        backMusic.volume = 0.6;
+        backMusic.volume = 0.55;
         setTimeout(()=> backMusic.play(), 7500);
         setName('retract');
     }

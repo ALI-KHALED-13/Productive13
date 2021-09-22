@@ -84,7 +84,7 @@ main > section > h2 {font-size: max(2.2vw, 2.2vh)}
 main > section > h2 > sup {
     font-size: max(1.2vw, 1.2vh); 
     color: rgba(69, 69, 226, 0.753);
-    float: right;
+    float: left;
 }
 
 main > section  > .container{ /*representing every section container (lists, notes, reminders)*/
@@ -153,7 +153,7 @@ main > section  > .container{ /*representing every section container (lists, not
     width: 100%;
     height: 100%;
     z-index: 4;
-    padding: 7% 1%;
+    padding: 5% 1%;
 }
 .item-form > .exit {
     cursor: pointer;
@@ -169,10 +169,10 @@ main > section  > .container{ /*representing every section container (lists, not
     margin: auto;
     display: flex;
     flex-flow: column wrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
-.item-form > form > * {display: block; margin: 3%; padding: 2%;}
+.item-form > form > * {display: block; margin: 2%; padding: 2%;}
 .item-form > form > *:focus {outline: none;}
 .item-form > form > textarea {min-height: 40vh; width: 85%;}
 .item-form [type="submit"] {
