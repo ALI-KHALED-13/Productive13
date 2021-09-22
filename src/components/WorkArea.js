@@ -3,16 +3,20 @@ import NoteCard from './subcomponents/NoteCard';
 import ListCard from './subcomponents/ListCard';
 import RemindCard from './subcomponents/RemindCard';
 import AddingComp from './AddingComp';
-const WorkArea = ({data, type})=>{
-    const [notes, updateNotes] = useState([]);
-    const [lists, updateLists] = useState([]);
-    const [reminders, updateReminders] = useState([]);
-    
+const WorkArea = ({data})=>{
+    const [notes, updateNotes] = useState(data.notes);
+    const [lists, updateLists] = useState(data.lists);
+    const [reminders, updateReminders] = useState(data.reminders);
+
+    window.addEventListener('beforeunload', (ev)=>{
+        const dataStr = JSON.stringify({notes, lists, reminders});
+        localStorage.setItem('data', dataStr);
+    })
 
     return (
-        <main>
+        <main >
             <section>
-                <h2>NOTES <span>editable*</span></h2> 
+                <h2>NOTES <sup>editable*</sup></h2> 
                 <div className="container">
                     {
                     notes.map(note=> <NoteCard key={note.id} note={note} notes={notes} updateNotes={updateNotes}/>)
@@ -30,7 +34,7 @@ const WorkArea = ({data, type})=>{
             </section>
             <hr />
             <section>
-                <h2>Reminders</h2>
+                <h2>Reminders <sup>automatically arranged*</sup></h2>
                 <div className="container">
                     {
                     reminders.map(reminder=>  <RemindCard key={reminder.id} reminder={reminder} reminders={reminders} updateReminders={updateReminders}/>) 

@@ -60,7 +60,12 @@ main > section {
     min-height: 30vh;
     margin: 1%;
 }
-main > section > h2 > span {font-size: max(1.2vw, 1.2vh); color: blue;}
+main > section > h2 {font-size: max(2.2vw, 2.2vh)}
+main > section > h2 > sup {
+    font-size: max(1.2vw, 1.2vh); 
+    color: rgba(69, 69, 226, 0.753);
+    float: right;
+}
 
 main > section  > .container{ /*representing every section container (lists, notes, reminders)*/
     overflow-x: auto;

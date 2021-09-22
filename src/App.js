@@ -7,10 +7,15 @@ import AliFooter from './components/AliFooter'
 
 function App(){
     //useeffect on mount to fetch from localSorage
+    if (!localStorage.getItem("data")){
+        localStorage.setItem('data', JSON.stringify({notes: [], lists: [], reminders: []}));
+    }
+    const data = JSON.parse(localStorage.getItem('data'));
+    
     return (
         <React.Fragment>
             <MyHeader />
-            <WorkArea />
+            <WorkArea data={data}/>
             <AliFooter />
         </React.Fragment>
     );
