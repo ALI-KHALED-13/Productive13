@@ -3,7 +3,6 @@ import React from 'react';
 const ListCard =({ list, lists, updateLists})=>{
     const listType = list.listType.slice( list.listType.search('-') + 1 );
 
-    console.log('list');
     const handleDelete =()=> updateLists(lists.filter(card=> card !== list));
 
     const handleCheck =(ev)=> {
