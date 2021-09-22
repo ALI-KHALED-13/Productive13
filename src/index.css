@@ -31,7 +31,7 @@ header {
     position: fixed;
     top: 0;
     min-height: 100vh;
-    transition: min-height 2s;
+    transition: min-height 3s;
     z-index: 5;
 }
 .retract {position: static;min-height: 15vh;}
