@@ -53,7 +53,7 @@ header span {
     display: inline-block;
     margin: 2%;
     padding: 2%;
-    border-radius: 8px;
+    border-radius: 7px;
     cursor: pointer;
 }
 
@@ -198,6 +198,6 @@ main > section  > .container{ /*representing every section container (lists, not
     }
     to {
         opacity: 0;
-        transform: translateX(-15px);
+        transform: translateX(-20px);
     }
 }

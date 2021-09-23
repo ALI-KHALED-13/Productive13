@@ -5,19 +5,22 @@ import backMusic from '../media/the_loop.mp3'
 
 const MyHeader =()=>{
     const [name, setName] = useState('');
-    const handleClick =()=>{
+
+    const handleClick =(ev)=>{
         document.getElementById('introMusic').play();
         const backMusic = document.getElementById('backMusic');
-        backMusic.volume = 0.55;
+        backMusic.volume = 0.5;
+
         setTimeout(()=> backMusic.play(), 7500);
-        setName('retract');
+        ev.target.style.animation = 'fadeOutLeft 3s'
+        setTimeout(()=> setName('retract'), 2800);
     }
     return (
         <header className={name}>
             <img src={photo} alt="productive"/>
             <div> 
                 <h1>Productive</h1>
-                <p>your work managment area</p>
+                <p>your life managment app</p>
                 {name? null: <span onClick={handleClick} > Let's Go! </span>}
             </div>
             <audio id="introMusic">
