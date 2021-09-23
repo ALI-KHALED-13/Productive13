@@ -5,7 +5,7 @@ const ListCard =({ list, lists, updateLists})=>{
 
     const handleDelete =(ev)=> {
         ev.target.parentElement.style.animation = 'fadeOutLeft 1s';
-        setTimeout(updateLists(lists.filter(card=> card !== list)), 600);
+        setTimeout(()=> updateLists(lists.filter(card=> card !== list)), 600);
     }
     
     const handleCheck =(ev)=> {
@@ -31,8 +31,7 @@ const ListCard =({ list, lists, updateLists})=>{
 
     return (
         <div className="listCard" >
-            <h2 className="title" contentEditable 
-            suppressContentEditableWarning >{list.title}</h2>
+            <h2 className="title" >{list.title}</h2>
             <hr/>
             {
                 list.listType === 'unordred'? 
@@ -51,13 +50,8 @@ const ListCard =({ list, lists, updateLists})=>{
                     })
                     }
                 </ul>:
-                <ol 
-                    style={{ listStyleType: listType}} 
-                    contentEditable 
-                    suppressContentEditableWarning
-                >
+                <ol style={{ listStyleType: listType}} >
                     {list.content.map((obj, ind)=> <li key={list.id + ind}> {obj.item} </li>)}
-                
                 </ol>
             }
             <br />
