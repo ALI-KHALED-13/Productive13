@@ -6,7 +6,7 @@ import AliFooter from './components/AliFooter'
 
 
 function App(){
-    //useeffect on mount to fetch from localSorage
+    
     if (!localStorage.getItem("data")){
         localStorage.setItem('data', JSON.stringify({notes: [], lists: [], reminders: []}));
     }

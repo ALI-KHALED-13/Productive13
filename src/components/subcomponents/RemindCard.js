@@ -25,4 +25,3 @@ const RemindCard =({reminder, reminders, updateReminders, playAlert})=>{
 }
 export default React.memo(RemindCard);
 
-// audio notification ?

@@ -4,6 +4,7 @@ import NoteCard from './subcomponents/NoteCard';
 import ListCard from './subcomponents/ListCard';
 import RemindCard from './subcomponents/RemindCard';
 import AddingComp from './AddingComp';
+
 const WorkArea = ({data})=>{
     const [notes, updateNotes] = useState(data.notes);
     const [lists, updateLists] = useState(data.lists);

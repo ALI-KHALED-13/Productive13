@@ -66,4 +66,3 @@ const ListCard =({ list, lists, updateLists})=>{
     );
 }
 export default React.memo(ListCard);
-//to do : onchange for the checkboxes || css enhancments  ??
