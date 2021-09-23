@@ -17,7 +17,7 @@ const AddingComp =({stock, setStock})=>{
 
     return (
         <React.Fragment>
-            <aside onClick={handleOptions} >
+            <aside onClick={handleOptions} style={text === 'Add'? {}:{backgroundColor:"#99001c"}}>
                 {text}
                 <div className='options'>
                     <div>Note</div>

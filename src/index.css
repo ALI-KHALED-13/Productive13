@@ -74,6 +74,7 @@ aside {
     background-color: rgb(66, 15, 100);
     color: white;
     border-radius: 50%;
+    z-index: 2;
 }
 
 main > section {

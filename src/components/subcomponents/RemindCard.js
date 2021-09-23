@@ -8,7 +8,8 @@ const RemindCard =({reminder, reminders, updateReminders, playAlert})=>{
     }
 
     setTimeout(()=>{
-        playAlert().then(()=> alert("it's time for " + reminder.title));
+        playAlert().then(()=> setTimeout(()=> alert("it's time for " + reminder.title), 700));
+        ;
     }, (new Date(reminder.date).getTime() - Date.now()))
 
 

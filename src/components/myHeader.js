@@ -7,9 +7,12 @@ const MyHeader =()=>{
     const [name, setName] = useState('');
 
     const handleClick =(ev)=>{
-        document.getElementById('introMusic').play();
+        const intoMusic = document.getElementById('introMusic');
+        intoMusic.volume = 0.7;
+        intoMusic.play();
+
         const backMusic = document.getElementById('backMusic');
-        backMusic.volume = 0.5;
+        backMusic.volume = 0.3;
 
         setTimeout(()=> backMusic.play(), 7500);
         ev.target.style.animation = 'fadeOutLeft 3s'
