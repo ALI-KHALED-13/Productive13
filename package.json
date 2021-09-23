@@ -1,7 +1,7 @@
 {
   "name": "productive",
   "version": "0.1.0",
-  "homepage": "https://ALI-KHALED-13.github.io/productive.git",
+  "homepage": "https://ALI-KHALED-13.github.io/productive",
   "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
