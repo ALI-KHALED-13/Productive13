@@ -10,7 +10,7 @@ const WorkArea = ({data})=>{
     const [lists, updateLists] = useState(data.lists);
     const [reminders, updateReminders] = useState(data.reminders);
 
-    window.addEventListener('unload', (ev)=>{
+    document.addEventListener("visibilitychange", (ev)=>{
         const dataStr = JSON.stringify({notes, lists, reminders});
         localStorage.setItem('data', dataStr);
     })

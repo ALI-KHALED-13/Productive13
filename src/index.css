@@ -74,7 +74,29 @@ aside {
     background-color: rgb(66, 15, 100);
     color: white;
     border-radius: 50%;
+    z-index: 1;
+}
+.options {
+    position: absolute;
+    bottom: 50%;
+    right: -33vw;
+    background-color: rgba(27, 26, 26, 0.74);
+    width: 30vw;
+    transition: all 0.3s;
+}
+.show {
+    right: 2vw;
+    bottom: 100%;
     z-index: 2;
+}
+
+.options div {
+    max-height: 10vh;
+    line-height: 10vh;
+}
+.options div:hover {
+    cursor: pointer;
+    background-color: rgba(27, 26, 26, 0.89);
 }
 
 main > section {
@@ -122,30 +144,6 @@ main > section  > .container{ /*representing every section container (lists, not
 }
 .listCard li {text-align: left;}
 .listCard [type='checkbox'] {margin: 1%;}
-
-
-.options {
-    position: absolute;
-    bottom: 50%;
-    right: -33vw;
-    background-color: rgba(27, 26, 26, 0.74);
-    width: 30vw;
-    transition: all 0.3s;
-}
-.show {
-    right: 2vw;
-    bottom: 100%;
-    z-index: 2;
-}
-
-.options div {
-    max-height: 10vh;
-    line-height: 10vh;
-}
-.options div:hover {
-    cursor: pointer;
-    background-color: rgba(27, 26, 26, 0.89);
-}
 
 .item-form {
     position: fixed;
