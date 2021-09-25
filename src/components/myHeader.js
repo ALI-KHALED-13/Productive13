@@ -9,11 +9,11 @@ const MyHeader =()=>{
 
     const handleClick =(ev)=>{
         const intoMusic = document.getElementById('introMusic');
-        intoMusic.volume = 0.7;
+        intoMusic.volume = 0.8;
         intoMusic.play();
         
         const backMusic = document.getElementById('backMusic');
-        backMusic.volume = 0.3;
+        backMusic.volume = 0.4;
         setTimeout(()=> backMusic.play(), 7500);
 
         ev.target.style.animation = 'fadeOutLeft 3s'

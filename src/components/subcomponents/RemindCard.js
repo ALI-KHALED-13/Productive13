@@ -6,15 +6,15 @@ const RemindCard =({reminder, reminders, updateReminders, playAlert})=>{
         ev.target.parentElement.style.animation = 'fadeOutLeft 1s';
         setTimeout(()=> updateReminders(reminders.filter(obj=> obj !== reminder)), 600);
     }
+    const timeTillAlert = new Date(reminder.date).getTime() - Date.now();
 
-    setTimeout(()=>{
+    timeTillAlert > 0 && setTimeout(()=> {
         playAlert().then(()=> setTimeout(()=> alert("it's time for " + reminder.title), 700));
-        ;
-    }, (new Date(reminder.date).getTime() - Date.now()))
+    } , timeTillAlert);
 
 
     return (
-        <div className="reminder" >
+        <div className={"reminder" + (timeTillAlert > 0? '':" passed")} >
             <h2 className="title" >{reminder.title}</h2>
             <hr/>
             <p>to be done at {reminder.date.replace("T", " > ")}</p>

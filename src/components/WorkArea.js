@@ -17,7 +17,7 @@ const WorkArea = ({data})=>{
     
     const playAlert =()=>{
         const alertSFX = document.getElementById('alertSFX');
-        alertSFX.volume = 0.2;
+        alertSFX.volume = 0.3;
         return alertSFX.play();
     }
     return (

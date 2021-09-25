@@ -131,9 +131,10 @@ main > section  > .container{ /*representing every section container (lists, not
 .container > div > p {margin: 3% 0px; padding: 2%;}
 .container > div > button {position: absolute; bottom: 1px;}
 
-.note {background-color: rgb(255, 200, 129);color: black;}
-.reminder {background-color: rgb(215, 236, 181);color: black;}
-.listCard {background-color: rgb(129, 137, 255);color: white;}
+.note {background-color: rgb(255, 200, 129); color: black;}
+.reminder {background-color: rgb(215, 236, 181); color: black;}
+.passed {background-color: rgb(177, 190, 154); color: black;}
+.listCard {background-color: rgb(129, 137, 255); color: white;}
 
 .title {font-weight: 'bold'}
 
