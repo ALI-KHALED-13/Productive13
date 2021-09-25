@@ -31,9 +31,9 @@ const ItemForm =({forms, reset, setStock, stock})=>{
         ev.preventDefault();
         const categ = selected;
 
-        const content = categ !== 'list'? body: body.trim().split('\n').map(line=> {return {item:line, isChecked:false}});
+        const content = categ !== 'list'? body: body.trim().split('\n').map((line, ind)=> {return {item:line, isChecked:false, id: categ + (Math.floor(Date.now() / 3000) + ind)}});
 
-        const obj = {title, listType, content, date ,id: categ + Math.floor(Date.now() / 5000)}
+        const obj = {title, listType, content, date ,id: categ + Math.floor(Date.now() / 3000)}
         const arr = [...stock[categ+'s']];
         arr.push(obj)
 

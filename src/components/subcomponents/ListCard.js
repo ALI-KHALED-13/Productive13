@@ -14,8 +14,8 @@ const ListCard =({ list, lists, updateLists})=>{
                                 return card //unchanged
                             }
                             const content = card.content.map(obj=> { // representing the single item (line)
-                                if (obj.item === ev.target.value || obj.item === ev.target.textContent){ // clicking on the label or the input el.
-                                    return {item: obj.item, isChecked: !obj.isChecked}
+                                if (obj.id === ev.target.id){
+                                    return {item: obj.item, isChecked: !obj.isChecked, id: obj.id}
                                 }else {
                                     return obj
                                 }
@@ -37,10 +37,11 @@ const ListCard =({ list, lists, updateLists})=>{
                 list.listType === 'unordred'? 
                 <ul>
                     {
-                    list.content.map((obj, ind)=> { 
-                        return <li  key={list.id + ind} > 
+                    list.content.map(obj=> { 
+                        return <li  key={obj.id} > 
                                     <label style={obj.isChecked? checkedStyle: {}}>
-                                        <input type='checkbox' 
+                                        <input type='checkbox'
+                                        id={obj.id}
                                         checked={obj.isChecked} 
                                         onChange={handleCheck} 
                                         value={obj.item}
@@ -51,7 +52,7 @@ const ListCard =({ list, lists, updateLists})=>{
                     }
                 </ul>:
                 <ol style={{ listStyleType: listType}} >
-                    {list.content.map((obj, ind)=> <li key={list.id + ind}> {obj.item} </li>)}
+                    {list.content.map(obj=> <li key={obj.id}> {obj.item} </li>)}
                 </ol>
             }
             <br />
