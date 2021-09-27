@@ -13,13 +13,13 @@ const RemindCard =({reminder, reminders, updateReminders, playAlert})=>{
     if (timeTillAlert > 0){
         setTimeout(()=> {
             playAlert();
-            setTimeout(()=>setFired(true), 700);
+            setFired(true);
+            setTimeout(()=> alert("it's time for " + reminder.title), 500);
         } , timeTillAlert);
     }
-    if (fired) alert("it's time for " + reminder.title)
 
     return (
-        <div className={"reminder" + (timeTillAlert > 0? '':" passed")} >
+        <div className={"reminder" + (fired? " passed":"")} >
             <h2 className="title" >{reminder.title}</h2>
             <hr/>
             <p>to be done at {reminder.date.replace("T", " > ")}</p>

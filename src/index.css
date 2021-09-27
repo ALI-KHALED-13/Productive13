@@ -143,6 +143,7 @@ main > section  > .container{ /*representing every section container (lists, not
     padding:0; 
     margin:0
 }
+
 .listCard li {text-align: left;}
 .listCard [type='checkbox'] {margin: 1%;}
 
