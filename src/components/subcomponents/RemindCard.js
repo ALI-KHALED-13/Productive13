@@ -6,16 +6,21 @@ const RemindCard =({reminder, reminders, updateReminders, playAlert})=>{
     const handleDelete =(ev)=> {
         ev.target.parentElement.style.animation = 'fadeOutLeft 1s';
         setTimeout(()=> updateReminders(reminders.filter(obj=> obj !== reminder)), 600);
+        clearTimeout(timerId);
     }
 
     const timeTillAlert = new Date(reminder.date).getTime() - Date.now();
 
-    if (timeTillAlert > 0){
-        setTimeout(()=> {
-            playAlert();
-            setFired(true);
-            setTimeout(()=> alert("it's time for " + reminder.title), 500);
-        } , timeTillAlert);
+    const timerId = setTimeout(fireAlert, timeTillAlert);
+    if (timeTillAlert <= 0) {
+        clearTimeout(timerId);
+        if(!fired) setFired(true);
+    }
+
+    function fireAlert(){
+        playAlert();
+        setFired(true);
+        setTimeout(()=> alert("it's time for " + reminder.title), 500);
     }
 
     return (
