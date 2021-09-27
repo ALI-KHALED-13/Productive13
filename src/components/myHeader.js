@@ -19,6 +19,11 @@ const MyHeader =()=>{
         ev.target.style.animation = 'fadeOutLeft 3s'
         setTimeout(()=> setName('retract'), 2800);
     }
+    document.addEventListener("visibilitychange", (ev)=>{
+        const backMusic = document.getElementById('backMusic');
+        backMusic.volume = 0.4;
+        document.visibilityState === 'hidden'? backMusic.pause():backMusic.play();
+    })
 
     return (
         <header className={name}>
