@@ -4,6 +4,11 @@ const RemindCard =({reminder, reminders, updateReminders, playAlert})=>{
     const [fired, setFired] = useState(false);
     const timeTillAlert = new Date(reminder.date).getTime() - Date.now();
 
+    const handleDelete =(ev)=> {
+        ev.target.parentElement.style.animation = 'fadeOutLeft 1s';
+        setTimeout(()=> updateReminders(reminders.filter(obj=> obj !== reminder)), 600);     
+    }
+    
     useEffect(()=>{
         const timerId = setTimeout(fireAlert, timeTillAlert);
 
@@ -15,11 +20,6 @@ const RemindCard =({reminder, reminders, updateReminders, playAlert})=>{
         // eslint-disable-next-line
     }, [])
     
-    const handleDelete =(ev)=> {
-        ev.target.parentElement.style.animation = 'fadeOutLeft 1s';
-        setTimeout(()=> updateReminders(reminders.filter(obj=> obj !== reminder)), 600);     
-    }
-
     function fireAlert(){
         playAlert();
         setFired(true);
