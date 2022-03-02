@@ -6,7 +6,6 @@ import backMusic from '../media/the_loop.mp3'
 const MyHeader =()=>{
     const [name, setName] = useState('');
 
-
     const handleClick =(ev)=>{
         const intoMusic = document.getElementById('introMusic');
         intoMusic.volume = 0.8;
@@ -19,6 +18,15 @@ const MyHeader =()=>{
         ev.target.style.animation = 'fadeOutLeft 3s'
         setTimeout(()=> setName('retract'), 2800);
     }
+
+    document.addEventListener("visibilitychange", function() {
+        if (document.visibilityState === 'visible') {
+            document.getElementById('backMusic').play();
+        } else {
+            document.getElementById('backMusic').pause();
+        }
+    });
+
     
     
     return (

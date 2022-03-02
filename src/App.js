@@ -1,8 +1,9 @@
 import React from 'react';
 
 import MyHeader from './components/myHeader'
-import WorkArea from './components/WorkArea'
-import AliFooter from './components/AliFooter'
+const WorkArea = React.lazy(()=> import('./components/WorkArea'));
+const AliFooter = React.lazy(()=> import('./components/AliFooter'));
+
 
 
 function App(){
@@ -14,8 +15,10 @@ function App(){
     return (
         <React.Fragment>
             <MyHeader />
-            <WorkArea data={data}/>
-            <AliFooter />
+            <React.Suspense fallback={<h3>Loading...</h3>}>
+                <WorkArea data={data}/>
+                <AliFooter />
+            </React.Suspense>
         </React.Fragment>
     );
 }

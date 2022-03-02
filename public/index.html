@@ -8,7 +8,7 @@
     <meta name="description" content="tasks managment and productivity enhancing app. crate notes, lists and reminders!">
     <meta name="author" content="Ali Khaled Said">
     
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo13.png" />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -28,6 +28,16 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', ()=>{
+          navigator.serviceWorker.register('%PUBLIC_URL%/sw.js')
+            .then((reg)=> console.log('sw regsitered ... the scope is', reg.scope))
+            .catch(console.log)
+        })   
+      }
+    </script>
     
   </body>
 </html>
