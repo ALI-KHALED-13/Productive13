@@ -1,14 +1,20 @@
 {
   "short_name": "Productive",
-  "name": "Managment App",
+  "name": "Productive",
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#d96bf2",
+  "background_color": "#f3deff",
+  "color": "#8b17cf",
+  "orientation": "portrait-primary",
   "icons": [
     {
       "src": "favocon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "sizes": "128x128",
       "type": "image/x-icon"
     },
     {
-      "src": "logo13.png",
+      "src": "logo192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
@@ -17,9 +23,5 @@
       "type": "image/png",
       "sizes": "512x512"
     }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#d96bf2",
-  "background_color": "#ffffff"
+  ]
 }
