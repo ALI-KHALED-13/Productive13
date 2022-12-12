@@ -1,0 +1,9 @@
+
+footer {
+  min-height: 8vh;
+  background-color: black;
+}
+footer > a, footer > a:visited {
+  color: white;
+  line-height: 8vh;
+} 

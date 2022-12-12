@@ -16,50 +16,19 @@
     background-color: rgb(127, 229, 255);
     color: white;
 }
-::-webkit-scrollbar {width: 0.7vw; height: 0.8vw; }
+::-webkit-scrollbar {width: 7.5px; height: 8px; }
 ::-webkit-scrollbar-track {background-color: rgb(151, 151, 151); border-radius: 5px;}
-::-webkit-scrollbar-thumb {background-color: rgb(21, 98, 197); border-radius: 50px;} /*rgb(31, 124, 245)*/
+::-webkit-scrollbar-thumb {background-color: rgb(122, 62, 201); border-radius: 50px;} /*rgb(31, 124, 245)*/
 
 body {
     background-color: rgb(228, 235, 245);
     overflow-x: hidden;
 }
 
-header {
-    background-color: rgb(66, 15, 100);
-    color: rgb(209, 223, 238);
-    display: flex;
-    padding: 5%;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    min-height: 100vh;
-    transition: min-height 4s ease-in-out;
-    z-index: 5;
-}
-.retract {position: relative; min-height: 15vh; z-index: 1;}
 
-header  h1 {
-    font-size: var(--bigSize);
-}
-header  img {
-    width: 50%;
-    border-radius: 10px;
-    margin: 0px 10px;
-}
-header span {
-    background-color: beige;
-    color: rgb(66, 15, 100);
-    display: inline-block;
-    margin: 2%;
-    padding: 2%;
-    border-radius: 7px;
-    cursor: pointer;
-}
 
 main {min-height: 80vh;}
-footer {min-height: 8vh; background-color: black;}
-footer > a, footer > a:visited {color: white; line-height: 8vh;} 
+
 
 aside {
     cursor: pointer;
@@ -196,6 +165,7 @@ main > section  > .container{ /*representing every section container (lists, not
         transform: translateX(0);
     }
 }
+
 @keyframes fadeOutLeft {
     from {
         opacity: 1;

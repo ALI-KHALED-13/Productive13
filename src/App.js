@@ -1,8 +1,8 @@
 import React from 'react';
 
-import MyHeader from './components/myHeader'
+import MyHeader from './components/MyHeader'
 const WorkArea = React.lazy(()=> import('./components/WorkArea'));
-const AliFooter = React.lazy(()=> import('./components/AliFooter'));
+const Footer = React.lazy(()=> import('./components/Footer'));
 
 
 
@@ -17,7 +17,7 @@ function App(){
             <MyHeader />
             <React.Suspense fallback={<h3>Loading...</h3>}>
                 <WorkArea data={data}/>
-                <AliFooter />
+                <Footer />
             </React.Suspense>
         </React.Fragment>
     );

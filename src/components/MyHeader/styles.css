@@ -1,0 +1,31 @@
+header {
+  background-color: rgb(66, 15, 100);
+  color: rgb(209, 223, 238);
+  display: flex;
+  padding: 5%;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  min-height: 100vh;
+  transition: min-height 4s ease-in-out;
+  z-index: 5;
+}
+.retract {position: relative; min-height: 110px; z-index: 1;}
+
+header  h1 {
+  font-size: var(--bigSize);
+}
+header  img {
+  width: 50%;
+  border-radius: 10px;
+  margin: 0px 10px;
+}
+header span {
+  background-color: beige;
+  color: rgb(66, 15, 100);
+  display: inline-block;
+  margin: 2%;
+  padding: 2%;
+  border-radius: 7px;
+  cursor: pointer;
+}
