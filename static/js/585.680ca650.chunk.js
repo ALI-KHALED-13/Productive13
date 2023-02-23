@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkproductive=self.webpackChunkproductive||[]).push([[585],{585:function(e,r,n){n.r(r),n.d(r,{default:function(){return i}});var t=n(184),i=function(){return(0,t.jsx)("footer",{children:(0,t.jsx)("a",{href:"https://www.linkedin.com/in/ali-khaled-130013/",target:"_blank",rel:"noreferrer",children:"Website App Developer"})})}}}]);
+//# sourceMappingURL=585.680ca650.chunk.js.map
