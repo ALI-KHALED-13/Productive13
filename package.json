@@ -4,9 +4,6 @@
   "homepage": "https://ALI-KHALED-13.github.io/Productive13",
   "private": false,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
     "gh-pages": "^3.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -16,7 +13,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest --coverage",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
@@ -40,6 +37,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react": "^17.0.24"
+    "@types/react": "^17.0.24",
+    "jest": "^27.5.1"
   }
 }
